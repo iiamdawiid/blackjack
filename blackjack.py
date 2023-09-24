@@ -39,7 +39,7 @@ class Blackjack():
             card = self.card_list.pop(i)
             self.dealer_cards.append(card)
         if self.cards[self.player_cards[0]] + self.cards[self.player_cards[1]] == 21:
-            print("BLACKJACK -- YOU WIN !")
+            print("\nBLACKJACK -- YOU WIN !")
         elif self.cards[self.player_cards[0]] + self.cards[self.player_cards[1]] > 21:
             self.deal_cards()
         elif self.cards[self.dealer_cards[0]] + self.cards[self.dealer_cards[1]] > 21:
@@ -55,7 +55,7 @@ class Blackjack():
             self.card_total()
             if self.in_progress == False:
                 break
-            actions = {'H': self.hit, 'S': self.stand, 'Q': self.end_game}
+            actions = {'H': self.hit, 'S': self.stand, 'Q': self.quit}
             player_choice = input("Hit, Stand, Or Quit?: (H/S/Q): ")
             player_choice = player_choice.upper()
             if player_choice not in {'H', 'S', 'Q'}:
@@ -130,6 +130,10 @@ class Blackjack():
         else:
             print("\nThank you for playing!")
             self.in_progress = False
+
+    def quit(self):
+        print("\nThank you for playing!")
+        self.in_progress = False
 
     def print_score(self):
         print(f"\nDEALER SCORE: {self.dealer_total}\nPLAYER SCORE: {self.player_total}")
