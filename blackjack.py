@@ -1,4 +1,3 @@
-# have a dictionary that holds the cards and their values
 import random
 
 class Blackjack():
@@ -85,8 +84,8 @@ class Blackjack():
             self.in_progress = False
             self.end_game()
         elif self.dealer_total == 21:
-            # come back to this later after stand method is made
-            pass
+            # if dealer_total is 21 re-deal the cards
+            self.card_total()
         else:
             pass
 
@@ -104,7 +103,7 @@ class Blackjack():
             print(f"PLAYER: {', '.join(self.player_cards)}")
 
     def stand(self):
-        ''' if user decides to stand, compare user_total to dealer_total and determine whether user or dealer won'''
+        ''' if user decides to stand, compare player_total to dealer_total and determine whether player or dealer won'''
         if self.player_total > self.dealer_total:
             self.print_score()
             print("!! YOU WON !!")
@@ -119,6 +118,7 @@ class Blackjack():
             self.end_game()
             
     def end_game(self):
+        '''if player wants to play again, call running_game(), else set in_progress = False to terminate'''
         go_again = input("\nPlay Again?: (Y/N): ")
         go_again = go_again.upper()
         while go_again not in {'Y', 'N'}:
