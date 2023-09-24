@@ -40,6 +40,7 @@ class Blackjack():
             self.dealer_cards.append(card)
         if self.cards[self.player_cards[0]] + self.cards[self.player_cards[1]] == 21:
             print("\nBLACKJACK -- YOU WIN !")
+            self.end_game()
         elif self.cards[self.player_cards[0]] + self.cards[self.player_cards[1]] > 21:
             self.deal_cards()
         elif self.cards[self.dealer_cards[0]] + self.cards[self.dealer_cards[1]] > 21:
