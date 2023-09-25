@@ -58,10 +58,10 @@ class Blackjack():
             actions = {'H': self.hit, 'S': self.stand, 'Q': self.quit}
             player_choice = input("Hit, Stand, Or Quit?: (H/S/Q): ")
             player_choice = player_choice.upper()
-            if player_choice not in {'H', 'S', 'Q'}:
+            while player_choice not in {'H', 'S', 'Q'}:
                 print("\n>>> INVALID INPUT <<<")
                 player_choice = input("Hit, Stand, Or Quit?: (H/S/Q): ")
-                player_choice == player_choice.upper()
+                player_choice = player_choice.upper()
             action = actions[player_choice]
             action()
         
@@ -75,7 +75,7 @@ class Blackjack():
             self.dealer_total += self.cards[card]
         if self.player_total == 21:
             self.print_score()
-            print("\n!! YOU WON !")
+            print("\n!! YOU WON !!")
             self.in_progress = False
             self.end_game()
         elif self.player_total > 21:
